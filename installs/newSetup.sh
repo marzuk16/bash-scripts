@@ -90,6 +90,12 @@ opera(){
     echo ".........................opera install done.........................";
 }
 
+salck(){
+    echo ".........................slack installing.........................";
+    sudo snap install slack --classic
+    echo ".........................slack install done.........................";
+}
+
 commands[0]="update";
 commands[1]="upgrade";
 commands[2]="snapd";
@@ -101,6 +107,7 @@ commands[7]="intellij";
 commands[8]="postman";
 commands[9]="chrome";
 commands[10]="opera";
+#commands[11]="slack";
 
 echo "------------------------------";
 echo "Executing commands."
