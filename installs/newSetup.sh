@@ -90,6 +90,14 @@ opera(){
     echo ".........................opera install done.........................";
 }
 
+stickyNotes(){
+    echo ".........................sticky notes installing.........................";
+    sudo add-apt-repository ppa:umang/indicator-stickynotes
+    update
+    sudo apt-get install indicator-stickynotes
+    echo ".........................sticky notes install done.........................";
+}
+
 commands[0]="update";
 commands[1]="upgrade";
 commands[2]="snapd";
@@ -101,6 +109,7 @@ commands[7]="intellij";
 commands[8]="postman";
 commands[9]="chrome";
 commands[10]="opera";
+commands[11]="stickyNotes";
 
 echo "------------------------------";
 echo "Executing commands."
