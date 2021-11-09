@@ -98,6 +98,12 @@ stickyNotes(){
     echo ".........................sticky notes install done.........................";
 }
 
+slack(){
+    echo ".........................slack installing.........................";
+    sudo snap install slack --classic
+    echo ".........................slack install done.........................";
+}
+
 commands[0]="update";
 commands[1]="upgrade";
 commands[2]="snapd";
@@ -110,6 +116,7 @@ commands[8]="postman";
 commands[9]="chrome";
 commands[10]="opera";
 commands[11]="stickyNotes";
+#commands[12]="slack";
 
 echo "------------------------------";
 echo "Executing commands."
