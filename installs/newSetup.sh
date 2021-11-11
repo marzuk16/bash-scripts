@@ -90,7 +90,15 @@ opera(){
     echo ".........................opera install done.........................";
 }
 
-salck(){
+stickyNotes(){
+    echo ".........................sticky notes installing.........................";
+    sudo add-apt-repository ppa:umang/indicator-stickynotes
+    update
+    sudo apt-get install indicator-stickynotes
+    echo ".........................sticky notes install done.........................";
+}
+
+slack(){
     echo ".........................slack installing.........................";
     sudo snap install slack --classic
     echo ".........................slack install done.........................";
@@ -107,7 +115,8 @@ commands[7]="intellij";
 commands[8]="postman";
 commands[9]="chrome";
 commands[10]="opera";
-#commands[11]="slack";
+commands[11]="stickyNotes";
+#commands[12]="slack";
 
 echo "------------------------------";
 echo "Executing commands."
