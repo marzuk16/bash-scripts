@@ -1,8 +1,8 @@
 <<'###'
+
     Author: Marzuk Islam, Jr. SE (Ethics Advance Technology Ltd)
-    
-    This scripts use for some essential softwares
-    install for software enigineer after fresh setup.
+    Title: This scripts use for some essential softwares
+            install for software enigineer after fresh setup.
 ###
 
 #!/bin/bash
