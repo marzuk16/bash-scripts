@@ -1,3 +1,10 @@
+<<'###'
+    Author: Marzuk Islam, Jr. SE (Ethics Advance Technology Ltd)
+    
+    This scripts use for some essential softwares
+    install for software enigineer after fresh setup.
+###
+
 #!/bin/bash
 
 update(){
@@ -104,18 +111,18 @@ slack(){
     echo ".........................slack install done.........................";
 }
 
-commands[0]="update";
-commands[1]="upgrade";
-commands[2]="snapd";
-commands[3]="curl";
-commands[4]="git";
-commands[5]="nodejsLTS16";
-commands[6]="vscode";
-commands[7]="intellij";
-commands[8]="postman";
-commands[9]="chrome";
+#commands[0]="update";
+#commands[1]="upgrade";
+#commands[2]="snapd";
+#commands[3]="curl";
+#commands[4]="git";
+#commands[5]="nodejsLTS16";
+#commands[6]="vscode";
+#commands[7]="intellij";
+#commands[8]="postman";
+#commands[9]="chrome";
 commands[10]="opera";
-commands[11]="stickyNotes";
+#commands[11]="stickyNotes";
 #commands[12]="slack";
 
 echo "------------------------------";
