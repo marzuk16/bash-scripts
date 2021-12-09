@@ -19,30 +19,29 @@ upgrade(){
     echo ".........................upgrade ended............................";
 }
 
-snapdInstall(){
+snapd(){
     echo ".........................snapd insatlling.........................";
     update;
     sudo apt-get upgrade;
-    #If you are running ubuntu 16.04 LTS or later,
-    #you don’t need to do anything. Snap is already installed and ready to go.
-    echo "Snap version check: ";
-    snap version;
     echo ".........................snapd install done............................";
 }
 
-curlInstall(){
+<<'###'
+curl(){
     echo ".........................curl installing.........................";
     update;
+    upgrade;
     sudo apt install curl;
-    curl;
+        sudo service apache2 restart
     echo ".........................curl install done.........................";
 
     echo "curl version check: ";
     curl --version;
+    sudo service apache2 restart
 }
 
-
-gitInstall(){
+###
+git(){
     echo ".........................git installing.........................";
     sudo apt install git-all;
     echo ".........................git install done.........................";
@@ -54,6 +53,7 @@ nodejsLTS16(){
     nano nodesource_setup.sh
 	sudo bash nodesource_setup.sh
 	sudo apt install nodejs -y
+
     echo ".........................node js LTS 16 install done.........................";
 
     echo "node version check: ";
@@ -61,8 +61,7 @@ nodejsLTS16(){
     echo "npm version check: ";
     npm -v;
 }
-
-yarnInstall() {
+yarn() {
 	echo "............................yarn install................."
 	sudo npm install --global yarn
 	yarn --version
@@ -72,7 +71,7 @@ yarnInstall() {
 vscode(){
     echo ".........................vscode installing.........................";
 
-    sudo snap install --classic code
+   sudo snap install --classic code # or code-insiders
 
     echo ".........................vscode install done.........................";
 }
@@ -101,7 +100,7 @@ opera(){
     echo ".........................opera installing.........................";
     wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -;
     sudo add-apt-repository "deb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free";
-    sudo apt install opera-stable -y;
+    sudo apt install opera-stable;
     echo ".........................opera install done.........................";
 }
 
@@ -118,7 +117,6 @@ slack(){
     sudo snap install slack --classic
     echo ".........................slack install done.........................";
 }
-
 telegram(){
     echo ".........................telegram installing.........................";
     sudo add-apt-repository ppa:atareao/telegram
@@ -128,19 +126,19 @@ telegram(){
 
 commands[0]="update";
 commands[1]="upgrade";
-commands[2]="snapdInstall";
-commands[3]="curlInstall";
-commands[4]="gitInstall";
-commands[5]="nodejsLTS16";
-commands[5]="yarnInstall";
-commands[6]="vscode";
-commands[7]="intellij";
-commands[8]="postman";
-commands[9]="chrome";
-commands[10]="opera";
+#commands[2]="snapd";
+#commands[3]="curl";
+commands[3]="git";
+commands[4]="nodejsLTS16";
+commands[5]="vscode";
+commands[6]="intellij";
+commands[7]="postman";
+#commands[8]="chrome";
+#commands[10]="opera";
 commands[11]="stickyNotes";
-commands[12]="slack";
-commands[13]="telegram";
+#commands[12]="slack";
+commands[9]="yarn";
+commands[10]="telegram";
 
 echo "------------------------------";
 echo "Executing commands."
