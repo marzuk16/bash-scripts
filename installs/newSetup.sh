@@ -34,7 +34,6 @@ curlInstall(){
     echo ".........................curl installing.........................";
     update;
     sudo apt install curl;
-    curl;
     echo ".........................curl install done.........................";
 
     echo "curl version check: ";
