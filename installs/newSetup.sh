@@ -19,18 +19,7 @@ upgrade(){
     echo ".........................upgrade ended............................";
 }
 
-snapdInstall(){
-    echo ".........................snapd insatlling.........................";
-    update;
-    sudo apt-get upgrade;
-    #If you are running ubuntu 16.04 LTS or later,
-    #you don’t need to do anything. Snap is already installed and ready to go.
-    echo "Snap version check: ";
-    snap version;
-    echo ".........................snapd install done............................";
-}
-
-curlInstall(){
+curl(){
     echo ".........................curl installing.........................";
     update;
     sudo apt install curl;
@@ -41,7 +30,7 @@ curlInstall(){
 }
 
 
-gitInstall(){
+git(){
     echo ".........................git installing.........................";
     sudo apt install git-all;
     echo ".........................git install done.........................";
@@ -50,9 +39,9 @@ gitInstall(){
 nodejsLTS16(){
     echo ".........................node js LTS 16 installing.........................";
     curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh;
-    nano nodesource_setup.sh
-	sudo bash nodesource_setup.sh
-	sudo apt install nodejs -y
+    nano nodesource_setup.sh;
+    sudo bash nodesource_setup.sh;
+    sudo apt install nodejs -y;
     echo ".........................node js LTS 16 install done.........................";
 
     echo "node version check: ";
@@ -61,11 +50,11 @@ nodejsLTS16(){
     npm -v;
 }
 
-yarnInstall() {
+yarn() {
 	echo "............................yarn install................."
 	sudo npm install --global yarn
 	yarn --version
-    echo ".........................yarn install done.........................";
+	echo ".........................yarn install done.........................";
 }
 
 vscode(){
@@ -127,11 +116,10 @@ telegram(){
 
 commands[0]="update";
 commands[1]="upgrade";
-commands[2]="snapdInstall";
-commands[3]="curlInstall";
-commands[4]="gitInstall";
-commands[5]="nodejsLTS16";
-commands[5]="yarnInstall";
+commands[2]="curl";
+commands[3]="git";
+commands[4]="nodejsLTS16";
+commands[5]="yarn";
 commands[6]="vscode";
 commands[7]="intellij";
 commands[8]="postman";
