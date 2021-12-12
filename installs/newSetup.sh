@@ -7,6 +7,8 @@
 
 #!/bin/bash
 
+errors=("s");
+
 update(){
     echo ".........................update starting.........................";
     sudo apt-get update;
@@ -23,6 +25,10 @@ curl(){
     echo ".........................curl installing.........................";
     update;
     sudo apt install curl;
+    if[ $? -ne 0]
+    then
+    	errors[1]="curl";
+    fi
     echo ".........................curl install done.........................";
 
     echo "curl version check: ";
@@ -33,6 +39,10 @@ curl(){
 git(){
     echo ".........................git installing.........................";
     sudo apt install git-all;
+    if[ $? -ne 0]
+    then
+    	errors[2]="git";
+    fi
     echo ".........................git install done.........................";
 }
 
@@ -42,6 +52,10 @@ nodejsLTS16(){
     nano nodesource_setup.sh;
     sudo bash nodesource_setup.sh;
     sudo apt install nodejs -y;
+    if[ $? -ne 0]
+    then
+    	errors[3]="node";
+    fi
     echo ".........................node js LTS 16 install done.........................";
 
     echo "node version check: ";
@@ -53,6 +67,10 @@ nodejsLTS16(){
 yarn() {
 	echo "............................yarn install................."
 	sudo npm install --global yarn
+	if[ $? -ne 0]
+	then
+		errors[4]="yarn";
+	fi
 	yarn --version
 	echo ".........................yarn install done.........................";
 }
@@ -61,6 +79,10 @@ vscode(){
     echo ".........................vscode installing.........................";
 
     sudo snap install --classic code
+    if[ $? -ne 0]
+    then
+    	errors[5]="vscode";
+    fi
 
     echo ".........................vscode install done.........................";
 }
@@ -68,12 +90,20 @@ vscode(){
 intellij(){
     echo ".........................intellij installing.........................";
     sudo snap install intellij-idea-ultimate --classic;
+    if[ $? -ne 0]
+    then
+    	errors[6]="intellij";
+    fi
     echo ".........................intellij install done.........................";
 }
 
 postman(){
     echo ".........................postman installing.........................";
     sudo snap install postman;
+    if[ $? -ne 0]
+    then
+    	errors[7]="postman";
+    fi
     echo ".........................postman install done.........................";
 }
 
@@ -81,6 +111,10 @@ chrome(){
     echo ".........................chrome installing.........................";
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb;
     sudo apt install ./google-chrome-stable_current_amd64.deb;
+    if[ $? -ne 0]
+    then
+    	errors[8]="chrome";
+    fi
     echo ".........................chrome install done.........................";
 
 }
@@ -90,6 +124,10 @@ opera(){
     wget -qO- https://deb.opera.com/archive.key | sudo apt-key add -;
     sudo add-apt-repository "deb [arch=i386,amd64] https://deb.opera.com/opera-stable/ stable non-free";
     sudo apt install opera-stable -y;
+    if[ $? -ne 0]
+    then
+    	errors[9]="opera";
+    fi
     echo ".........................opera install done.........................";
 }
 
@@ -98,12 +136,20 @@ stickyNotes(){
     sudo add-apt-repository ppa:umang/indicator-stickynotes
     update
     sudo apt-get install indicator-stickynotes
+    if[ $? -ne 0]
+    then
+    	errors[10]="stickyNotes";
+    fi
     echo ".........................sticky notes install done.........................";
 }
 
 slack(){
     echo ".........................slack installing.........................";
     sudo snap install slack --classic
+    if[ $? -ne 0]
+    then
+    	errors[11]="slack";
+    fi
     echo ".........................slack install done.........................";
 }
 
@@ -111,6 +157,10 @@ telegram(){
     echo ".........................telegram installing.........................";
     sudo add-apt-repository ppa:atareao/telegram
     sudo apt update && sudo apt install telegram
+    if[ $? -ne 0]
+    then
+    	errors[12]="telegram";
+    fi
     echo ".........................telegram install done.........................";
 }
 
@@ -138,6 +188,16 @@ for item in ${commands[@]}
         $item
     done
 
+if[${#errors[*]} -gt 1]
+then
+	echo "----------------------------------------";
+	echo "Couldn't install the following packages: ";
+	for item in ${errors[@]}
+		do
+			$item
+		done
+	echo "----------------------------------------";
+fi
 echo "------------------------------";
 echo "Finished executing commands."
 echo "------------------------------";
