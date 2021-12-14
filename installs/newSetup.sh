@@ -24,11 +24,8 @@ upgrade(){
 curl(){
     echo ".........................curl installing.........................";
     update;
-    sudo apt install curl;
-    if[ $? -ne 0]
-    then
-    	errors[1]="curl";
-    fi
+    sudo apt install curl || errors[1]="curl";
+  
     echo ".........................curl install done.........................";
 
     echo "curl version check: ";
