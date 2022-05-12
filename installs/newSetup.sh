@@ -1,6 +1,6 @@
 <<'###'
 
-    Author: Marzuk Islam, Jr. SE (Ethics Advance Technology Ltd)
+    Author: Marzuk Islam, Jr. SE (Dynamic solution innovators Ltd)
     Title: This scripts use for some essential softwares
             install for software enigineer after fresh setup.
 ###
@@ -25,7 +25,6 @@ curl(){
     echo ".........................curl installing.........................";
     update;
     sudo apt install curl || errors[1]="curl";
-  
     echo ".........................curl install done.........................";
 
     echo "curl version check: ";
@@ -35,12 +34,21 @@ curl(){
 
 git(){
     echo ".........................git installing.........................";
-    sudo apt install git-all;
-    if[ $? -ne 0]
-    then
-    	errors[2]="git";
-    fi
+    sudo apt install git-all || errors[2]="git";
     echo ".........................git install done.........................";
+}
+
+openJdk11(){
+    echo ".........................open jdk 11 installing.........................";
+    sudo apt-get install openjdk-11-jdk || errors[3]="openjdk11";
+    echo ".........................open jdk 11 install done.........................";
+}
+
+maven(){
+    echo ".........................maven installing.........................";
+    update;
+    sudo apt install maven || errors[4]="maven";
+    echo ".........................maven install done.........................";
 }
 
 nodejsLTS16(){
@@ -51,7 +59,7 @@ nodejsLTS16(){
     sudo apt install nodejs -y;
     if[ $? -ne 0]
     then
-    	errors[3]="node";
+    	errors[5]="node";
     fi
     echo ".........................node js LTS 16 install done.........................";
 
@@ -63,44 +71,27 @@ nodejsLTS16(){
 
 yarn() {
 	echo "............................yarn install................."
-	sudo npm install --global yarn
-	if[ $? -ne 0]
-	then
-		errors[4]="yarn";
-	fi
+	sudo npm install --global yarn || errors[6]="yarn";
+    echo "yarn version check: ";
 	yarn --version
 	echo ".........................yarn install done.........................";
 }
 
 vscode(){
     echo ".........................vscode installing.........................";
-
-    sudo snap install --classic code
-    if[ $? -ne 0]
-    then
-    	errors[5]="vscode";
-    fi
-
+    sudo snap install --classic code || errors[7]="vscode";
     echo ".........................vscode install done.........................";
 }
 
 intellij(){
     echo ".........................intellij installing.........................";
-    sudo snap install intellij-idea-ultimate --classic;
-    if[ $? -ne 0]
-    then
-    	errors[6]="intellij";
-    fi
+    sudo snap install intellij-idea-ultimate --classic || errors[8]="intellij";
     echo ".........................intellij install done.........................";
 }
 
 postman(){
     echo ".........................postman installing.........................";
-    sudo snap install postman;
-    if[ $? -ne 0]
-    then
-    	errors[7]="postman";
-    fi
+    sudo snap install postman || errors[9]="postman";
     echo ".........................postman install done.........................";
 }
 
@@ -110,7 +101,7 @@ chrome(){
     sudo apt install ./google-chrome-stable_current_amd64.deb;
     if[ $? -ne 0]
     then
-    	errors[8]="chrome";
+    	errors[10]="chrome";
     fi
     echo ".........................chrome install done.........................";
 
@@ -123,7 +114,7 @@ opera(){
     sudo apt install opera-stable -y;
     if[ $? -ne 0]
     then
-    	errors[9]="opera";
+    	errors[11]="opera";
     fi
     echo ".........................opera install done.........................";
 }
@@ -132,32 +123,21 @@ stickyNotes(){
     echo ".........................sticky notes installing.........................";
     sudo add-apt-repository ppa:umang/indicator-stickynotes
     update
-    sudo apt-get install indicator-stickynotes
-    if[ $? -ne 0]
-    then
-    	errors[10]="stickyNotes";
-    fi
+    sudo apt-get install indicator-stickynotes || errors[12]="stickyNotes";
     echo ".........................sticky notes install done.........................";
 }
 
 slack(){
     echo ".........................slack installing.........................";
-    sudo snap install slack --classic
-    if[ $? -ne 0]
-    then
-    	errors[11]="slack";
-    fi
+    sudo snap install slack --classic || errors[13]="slack";
     echo ".........................slack install done.........................";
 }
 
 telegram(){
     echo ".........................telegram installing.........................";
     sudo add-apt-repository ppa:atareao/telegram
-    sudo apt update && sudo apt install telegram
-    if[ $? -ne 0]
-    then
-    	errors[12]="telegram";
-    fi
+    update;
+    sudo apt install telegram || errors[14]="telegram";
     echo ".........................telegram install done.........................";
 }
 
@@ -165,16 +145,18 @@ commands[0]="update";
 commands[1]="upgrade";
 commands[2]="curl";
 commands[3]="git";
-commands[4]="nodejsLTS16";
-commands[5]="yarn";
-commands[6]="vscode";
-commands[7]="intellij";
-commands[8]="postman";
-commands[9]="chrome";
-commands[10]="opera";
-commands[11]="stickyNotes";
-commands[12]="slack";
-commands[13]="telegram";
+commands[4]="openJdk11";
+commands[5]="maven";
+commands[6]="nodejsLTS16";
+commands[7]="yarn";
+commands[8]="vscode";
+commands[9]="intellij";
+commands[10]="postman";
+commands[11]="chrome";
+commands[12]="opera";
+commands[13]="stickyNotes";
+commands[14]="slack";
+commands[15]="telegram";
 
 echo "------------------------------";
 echo "Executing commands."
