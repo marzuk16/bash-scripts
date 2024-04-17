@@ -15,7 +15,7 @@ function rootClean {
     apt-get -y autoremove
     apt-get clean
 
-    docker system prune # Purging All Unused or Dangling Images, Containers, Volumes, and Networks 
+    docker system prune -f # Purging All Unused or Dangling Images, Containers, Volumes, and Networks 
 
     ## Remove old versions of snap packages
     snap list --all | while read snapname ver rev trk pub notes; do
