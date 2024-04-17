@@ -2,7 +2,10 @@
 
 function rootClean {
     ## Show free space
+    echo -e "\n\033[33;5m Available space befor cleaning: \033[0m";
     df -Th | grep -v fs
+    echo -e "\033[33;5m Available space befor cleaning: \033[0m\n";
+
     # Will need English output for processing
     LANG=en_GB.UTF-8
 
@@ -38,7 +41,10 @@ function rootClean {
     journalctl --vacuum-time=1s
 
     ## Show free space
+    echo -e "\n\033[33;5m Available space after cleaning: \033[0m";
     df -Th | grep -v fs
+    echo -e "\033[33;5m Available space after cleaning: \033[0m\n";
+
 }
 
 rootClean
