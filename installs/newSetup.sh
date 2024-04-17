@@ -1,8 +1,8 @@
 <<'###'
 
-    Author: Marzuk Islam, Jr. SE (Dynamic solution innovators Ltd)
+    Author: Marzuk Islam, Assistant Software Engineer (Dynamic solution innovators Ltd)
     Title: This scripts use for some essential softwares
-            install for software enigineer after fresh setup.
+            install for software enigineer after fresh OS (ubuntu) install.
 ###
 
 #!/bin/bash
