@@ -170,7 +170,7 @@ for item in ${commands[@]}
 if[${#errors[*]} -gt 1]
 then
 	echo "----------------------------------------";
-	echo "Couldn't install the following packages: ";
+	echo " \033[33;5m Couldn't install the following packages: \033[0m";
 	for item in ${errors[@]}
 		do
 			$item
